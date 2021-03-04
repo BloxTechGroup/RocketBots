@@ -40,7 +40,7 @@ function request(url, method, headers, body) {
     });
 }
 
-function gar(uid, gid) {
+function GetRank(uid, gid) {
     if (typeof uid !== 'number') {
         console.log(`Groupid should be without the have no quotes`)
     }
@@ -82,7 +82,7 @@ class RocketBot {
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
     async promote(userid, groupid) {
-        const r = await gar(userid, groupid);
+        const r = await GetRank(userid, groupid);
         console.log(r + 1)
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
@@ -91,7 +91,7 @@ class RocketBot {
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
     async demote(userid, groupid) {
-        const r = await gar(userid, groupid);
+        const r = await GetRank(userid, groupid);
         console.log(r + 1)
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
