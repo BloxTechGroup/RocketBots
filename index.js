@@ -84,7 +84,7 @@ class RocketBot {
         const rank = await GetRank(userid, groupid);
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
-            rankId: rank - 1
+            rankId: rank + 1
         }));
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
