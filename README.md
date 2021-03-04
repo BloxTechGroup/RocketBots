@@ -149,3 +149,6 @@ console.log(botInfo);
 ## Support
 
 You can join our [Discord server](https://discord.gg/6ybaSHpFP3) and open a ticket for support.
+
+### Credi
+Credit to WHOOOP#0001 for promote and demote
