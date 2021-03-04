@@ -82,7 +82,6 @@ class RocketBot {
     }
     async promote(userid, groupid) {
         const r = await GetRank(userid, groupid);
-        console.log(r + 1)
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
             rankId: r - 1
@@ -91,7 +90,6 @@ class RocketBot {
     }
     async demote(userid, groupid) {
         const r = await GetRank(userid, groupid);
-        console.log(r + 1)
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
             rankId: r - 1
