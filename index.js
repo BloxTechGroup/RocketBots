@@ -81,18 +81,18 @@ class RocketBot {
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
     async promote(userid, groupid) {
-        const r = await GetRank(userid, groupid);
+        const rank = await GetRank(userid, groupid);
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
-            rankId: r - 1
+            rankId: rank - 1
         }));
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
     async demote(userid, groupid) {
-        const r = await GetRank(userid, groupid);
+        const rank = await GetRank(userid, groupid);
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userid,
-            rankId: r - 1
+            rankId: rank - 1
         }));
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
