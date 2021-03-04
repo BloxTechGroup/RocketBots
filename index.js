@@ -42,7 +42,7 @@ function request(url, method, headers, body) {
 
 function GetRank(uid, gid) {
     if (typeof uid !== 'number') {
-        console.log(`Groupid should be without the have no quotes`)
+        console.log(`Group id should not be a string`)
     }
     return new Promise(function (resolve, reject) {
         fetch(`https://groups.roblox.com/v2/users/${uid}/groups/roles`, {
@@ -57,9 +57,8 @@ function GetRank(uid, gid) {
                 if (error) {
                     if (error.code === 3) {
                         console.log("Invaild userid");
-                    } else if (error.code === 0) {
-                        console.log("Something went wrong ooof");
                     }
+                  }
                 }
                 const rank = data.data.find((info) => gid === info.group.id);
                 resolve(rank.role.rank);
