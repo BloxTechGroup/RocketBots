@@ -119,6 +119,22 @@ console.log(botInfo);
       response: "Successfully ranked user in group."
   }
   ```
+  
+   ### .demote(userId,groupID)
+  ```js
+  {
+      success: true,
+      response: "Successfully ranked user in group."
+  }
+  ```
+ 
+   ### .promote(userId,groupID)
+  ```js
+  {
+      success: true,
+      response: "Successfully ranked user in group."
+  }
+  ```
 
   ### .exile(userId)
   ```js
