@@ -1,4 +1,4 @@
-# RocketBots [![Version](https://img.shields.io/badge/version-1.0.3-brightgreen)](https://rocketapps.bloxtech.tech)
+# RocketBots [![Version](https://img.shields.io/badge/version-1.0.4-brightgreen)](https://rocketapps.bloxtech.tech)
 
 Use the RocketBots (Roblox API) through your RocketApps account! We take care of maintaining your Cookie & storing it in a secure way. No more “Damn, I accidentally put my Glitch project on public!”
 

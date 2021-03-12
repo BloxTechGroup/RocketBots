@@ -1,8 +1,9 @@
 {
   "name": "rocketbots",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Use the RocketBots API from RocketApps! (rocketapps.bloxtech.tech)",
   "main": "index.js",
+  "github": "bloxtechgroup/rocketbots",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
