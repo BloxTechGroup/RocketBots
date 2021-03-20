@@ -91,6 +91,10 @@ class RocketBot {
         }));
         return (response.success ? response : { success: false, reason: response.reason });
     }
+    async getIdFromUsername(username) {
+        const response = await request(`${api}/${this.teamId}/getidfromusername/${username}`, 'GET', {}, {});
+        return (response.success ? {success: true, response: response.response} : { success: false, reason: response.reason });
+    }
 }
 
 module.exports = RocketBot
