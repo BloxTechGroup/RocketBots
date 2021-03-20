@@ -1,4 +1,4 @@
-# RocketBots [![Version](https://img.shields.io/badge/version-1.0.4-brightgreen)](https://rocketapps.bloxtech.tech)
+# RocketBots [![Version](https://img.shields.io/badge/version-1.0.5-brightgreen)](https://rocketapps.bloxtech.tech)
 
 Use the RocketBots (Roblox API) through your RocketApps account! We take care of maintaining your Cookie & storing it in a secure way. No more “Damn, I accidentally put my Glitch project on public!”
 
@@ -55,6 +55,14 @@ console.log(botInfo);
     id: '12345', // Bot Roblox id
     name: 'roblox', // Bot Roblox username
     created: '2021-03-01T21:51:27.097Z'
+  }
+  ```
+
+  ### .getIdFromUsername(username)
+  ```js
+  {
+      success: true,
+      response: 12345
   }
   ```
 
