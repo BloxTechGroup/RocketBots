@@ -40,6 +40,34 @@ function request(url, method, headers, body) {
     });
 }
 
+function GetRank(uid, gid) {
+    if (typeof uid !== 'number') {
+        reject(`Group id should not be a string`)
+    }
+    return new Promise(function (resolve, reject) {
+        fetch(`https://groups.roblox.com/v2/users/${uid}/groups/roles`, {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            credentials: "include"
+        }).then(async response => {
+            response.json().then(data => {
+                const error = data.errors && data.errors[0];
+                if (error) {
+                    if (error.code === 3) {
+                        reject("Invaild userid");
+                    }
+                  }
+                }
+                const rank = data.data.find((info) => gid === info.group.id);
+                resolve(rank.role.rank);
+            })
+        })
+    });
+
+}
+
 class RocketBot {
     constructor(teamId) {
         this.teamId = teamId;
@@ -52,13 +80,29 @@ class RocketBot {
         const response = await request(`${api}/${this.teamId}/getjoinrequests`, 'GET', {}, {});
         return (response.success ? response.response : { success: false, reason: response.reason });
     }
+    async promote(userid, groupid) {
+        const rank = await GetRank(userid, groupid);
+        const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
+            userId: userid,
+            rankId: rank + 1
+        }));
+        return (response.success ? response.response : { success: false, reason: response.reason });
+    }
+    async demote(userid, groupid) {
+        const rank = await GetRank(userid, groupid);
+        const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
+            userId: userid,
+            rankId: rank - 1
+        }));
+        return (response.success ? response.response : { success: false, reason: response.reason });
+    }
     async shout(message) {
         const response = await request(`${api}/${this.teamId}/shout`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             msg: message
         }));
         return (response.success ? response : { success: false, reason: response.reason });
     }
-    async messageUser(userId,subject,message) {
+    async messageUser(userId, subject, message) {
         const response = await request(`${api}/${this.teamId}/messageuser`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userId,
             subject: subject,
@@ -78,7 +122,7 @@ class RocketBot {
         }));
         return (response.success ? response : { success: false, reason: response.reason });
     }
-    async rankInGroup(userId,rankId) {
+    async rankInGroup(userId, rankId) {
         const response = await request(`${api}/${this.teamId}/rankingroup`, "POST", { "Content-Type": "application/json" }, JSON.stringify({
             userId: userId,
             rankId: rankId
