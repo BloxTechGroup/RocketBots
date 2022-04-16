@@ -14,12 +14,11 @@ Use the RocketBots (Roblox API) through your RocketApps account! We take care of
 4. Once the team is created, press "manage" next to your team.
 5. Now head to the "integrations" tab.
 6. Press "Link Bot" button.
-7. In the input field, enter the cookie of your Robot and press the green "next" button.
-8. Confirm that we are linking the correct Roblox account.
-9. The page will now reload. Head to the "integrations" tab once again.
-10. On the bottom it will say "RocketApps also allows you to use your bots through our API. View the api here". Press the "here".
-11. You'll now be redirected to our API documentation. Head to the "settings" tab.
-12. Copy your team / loader ID here :-)
+7. Enter your Roblox bot's login credentials and follow the steps on your screen.
+8. The page will now reload. Head to the "integrations" tab once again.
+9. On the bottom it will say "RocketApps also allows you to use your bots through our API. View the api here". Press the "here".
+10. You'll now be redirected to our API documentation. Head to the "settings" tab.
+11. Copy your team / loader ID here :-)
 
 ### Requiring the module
 ```js
