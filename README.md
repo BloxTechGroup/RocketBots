@@ -3,11 +3,13 @@
 Use the RocketBots (Roblox API) through your RocketApps account! We take care of maintaining your Cookie & storing it in a secure way. No more “Damn, I accidentally put my Glitch project on public!”
 
 ## Install
+
 `npm install rocketbots`
 
 ## Usage
 
 ### Getting your team ID
+
 1. Head to [rocketapps.bloxtech.tech](https://rocketapps.bloxtech.tech).
 2. Sign up (or login) for an account.
 3. Create a team (Make sure to input the right Roblox group ID here, as this is the group ID that the module will use.)
@@ -21,17 +23,21 @@ Use the RocketBots (Roblox API) through your RocketApps account! We take care of
 11. Copy your team / loader ID here :-)
 
 ### Requiring the module
+
 ```js
-const RocketBots = require('rocketbots');
+const RocketBots = require("rocketbots");
 ```
+
 (Make sure to run `npm install rocketbots` first! Else this will not work.)
 
 ### Making a bot instance
+
 ```js
-const Bot = new RocketBots("YOUR_TEAM_ID_HERE")
+const Bot = new RocketBots("YOUR_TEAM_ID_HERE");
 ```
 
 ### Using a function
+
 ```js
 Bot.info().then((botInfo) => {
   console.log(botInfo);
@@ -39,12 +45,14 @@ Bot.info().then((botInfo) => {
 ```
 
 ### Using a function (async)
+
 ```js
 const botInfo = await Bot.info();
 console.log(botInfo);
 ```
 
 ## Functions (and what they return)
+
 <details>
   <summary>Click to expand.</summary>
   
@@ -57,83 +65,92 @@ console.log(botInfo);
   }
   ```
 
-  ### .getIdFromUsername(username)
-  ```js
-  {
-      success: true,
-      response: 12345
-  }
-  ```
+### .getIdFromUsername(username)
 
-  ### .getJoinRequests()
-  ```js
-  [
-    {
-        requester: {
-            userId: 1234,
-            username: 'roblox',
-            displayName: 'roblox'
-        },
-        created: "2021-03-03T17:45:02.75Z"
+```js
+{
+    success: true,
+    response: 12345
+}
+```
+
+### .getJoinRequests()
+
+```js
+[
+  {
+    requester: {
+      userId: 1234,
+      username: "roblox",
+      displayName: "roblox",
     },
-  ]
-  ```
+    created: "2021-03-03T17:45:02.75Z",
+  },
+];
+```
 
-  ### .approveJoinRequest(userId)
-  ```js
-  {
-      success: true,
-      response: "Successfully accepted users join request."
-  }
-  ```
+### .approveJoinRequest(userId)
 
-  ### .declineJoinRequest(userId)
-  ```js
-  {
-      success: true,
-      response: "Successfully declined user from join requests."
-  }
-  ```
+```js
+{
+    success: true,
+    response: "Successfully accepted users join request."
+}
+```
 
-  ### .shout(message)
-  ```js
-  {
-      success: true,
-      response: "Successfully shouted to group."
-  }
-  ```
+### .declineJoinRequest(userId)
 
-  ### .messageUser(userId,subject,message)
-  ```js
-  {
-      success: true,
-      response: "Successfully sent message to user."
-  }
-  ```
+```js
+{
+    success: true,
+    response: "Successfully declined user from join requests."
+}
+```
 
-  ### .messageUser(userId,subject,message)
-  ```js
-  {
-      success: true,
-      response: "Successfully sent message to user."
-  }
-  ```
+### .shout(message)
 
-  ### .rankInGroup(userId,rankId)
-  ```js
-  {
-      success: true,
-      response: "Successfully ranked user in group."
-  }
-  ```
+```js
+{
+    success: true,
+    response: "Successfully shouted to group."
+}
+```
 
-  ### .exile(userId)
-  ```js
-  {
-      success: true,
-      response: "Successfully exiled user from group."
-  }
-  ```
+### .messageUser(userId,subject,message)
+
+```js
+{
+    success: true,
+    response: "Successfully sent message to user."
+}
+```
+
+### .messageUser(userId,subject,message)
+
+```js
+{
+    success: true,
+    response: "Successfully sent message to user."
+}
+```
+
+### .rankInGroup(userId,rankId)
+
+```js
+{
+    success: true,
+    response: "Successfully ranked user in group."
+}
+```
+
+### .exile(userId)
+
+```js
+{
+    success: true,
+    response: "Successfully exiled user from group."
+}
+```
 
 </details>
 
